@@ -1,0 +1,15 @@
+
+.card-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.fruit {
+    height: auto;
+    width: auto;
+    max-width: 20vw;
+}
+
+.fruit:hover {
+    cursor: pointer;
+}

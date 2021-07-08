@@ -1,0 +1,9 @@
+
+.card-display {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.cards-display img {
+    border: 2px solid blue;
+}

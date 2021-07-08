@@ -25,9 +25,11 @@ function App() {
   }, [score, highScore]);
 
   const updateScore = (id) => {
-    //if cardsClicked doesn't contain id, add 1 to score, add id to cardsClicked
-    //    if score > highScore, set highScore = score
-    //else (if cardsClicked contains id), set score to 0, empty cardsClicked
+    if (cardsClicked.includes(id)) {
+      alert('id in array')
+    } else {
+      alert('adding id');
+    }
   }
 
   return (

@@ -25,9 +25,7 @@ function App() {
   }, [score, highScore]);
 
   const updateScore = (id) => {
-    //if cardsClicked doesn't contain id, add 1 to score, add id to cardsClicked
-    //    if score > highScore, set highScore = score
-    //else (if cardsClicked contains id), set score to 0, empty cardsClicked
+    alert(id);
   }
 
   return (
@@ -35,7 +33,7 @@ function App() {
       <header className="App-header">
         <Scoreboard score={score} highScore={highScore}/>
       </header>
-      <Cards updateScore={updateScore}/>
+      <Cards updateScore={this.updateScore}/>
     </div>
   );
 }
