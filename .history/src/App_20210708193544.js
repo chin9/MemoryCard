@@ -31,7 +31,6 @@ function App() {
     if (score > highScore) {
       setHighScore(score);
     }
-    setUpdate(false);
     console.log(cardsClicked);
   }, [score, cardsClicked]);
 

@@ -27,33 +27,28 @@ function App() {
   // }, [score, highScore]);
 
   useEffect(()=> {
-    console.log('score: ' + score);
-    if (score > highScore) {
-      setHighScore(score);
-    }
-    setUpdate(false);
+    console.log(score);
     console.log(cardsClicked);
   }, [score, cardsClicked]);
 
   useEffect(()=> {
-
-    console.log('card clicked: ' + currCard);
-    console.log('update?: ' + update); 
-
 
     if (currCard === null || update === false) {
       // do nothing
     } else {
       const exists = cardsClicked.some(v => v === currCard);   
       if (!exists) {
-        setScore(score => score + 1);
-        setCardsClicked(cardsClicked => [...cardsClicked, currCard]);        
-        } else {
+
+      setScore(score => score + 1);
+      setCardsClicked(cardsClicked => [...cardsClicked, currCard]);
+
+      if (score > highScore) {setHighScore(score)};
+    } else {
       setScore(0);
       setCardsClicked([]);
     }     
     }
-    // setUpdate(false);
+    setUpdate(update => false);
     // console.log(cardsClicked.some(v => v === ));
 
   }, [currCard, update]);
@@ -65,7 +60,7 @@ function App() {
     //else (if cardsClicked contains id), set score to 0, empty cardsClicked
 
     setCurrCard(id);
-    setUpdate(true);
+    setUpdate(update => true);
 
     // const exists = cardsClicked.some(v => v == id);
     // console.log(id);

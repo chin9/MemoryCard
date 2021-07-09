@@ -11,8 +11,6 @@ function App() {
 
   //keep track of cards
   const [cardsClicked, setCardsClicked] = useState([]);
-  const [currCard, setCurrCard] = useState(null);
-  const [update, setUpdate] = useState(false);
 
   // useEffect(()=>{
   //   const incrementOnClick = () => {
@@ -26,37 +24,11 @@ function App() {
   //   }
   // }, [score, highScore]);
 
+  useEffect(()=> console.log('wait'), [score]);
   useEffect(()=> {
-    console.log('score: ' + score);
-    if (score > highScore) {
-      setHighScore(score);
-    }
-    setUpdate(false);
     console.log(cardsClicked);
-  }, [score, cardsClicked]);
-
-  useEffect(()=> {
-
-    console.log('card clicked: ' + currCard);
-    console.log('update?: ' + update); 
-
-
-    if (currCard === null || update === false) {
-      // do nothing
-    } else {
-      const exists = cardsClicked.some(v => v === currCard);   
-      if (!exists) {
-        setScore(score => score + 1);
-        setCardsClicked(cardsClicked => [...cardsClicked, currCard]);        
-        } else {
-      setScore(0);
-      setCardsClicked([]);
-    }     
-    }
-    // setUpdate(false);
     // console.log(cardsClicked.some(v => v === ));
-
-  }, [currCard, update]);
+  }, [cardsClicked]);
 
 
   const updateScore = (id) => {
@@ -64,22 +36,19 @@ function App() {
     //    if score > highScore, set highScore = score
     //else (if cardsClicked contains id), set score to 0, empty cardsClicked
 
-    setCurrCard(id);
-    setUpdate(true);
+    const exists = cardsClicked.some(v => Number(v) === id);
+    console.log(id);
+    console.log(exists);
 
-    // const exists = cardsClicked.some(v => v == id);
-    // console.log(id);
-    // console.log(exists);
+    if (!exists) {
+      setScore(score => score + 1);
+      setCardsClicked(cardsClicked => [...cardsClicked, id]);
 
-    // if (!exists) {
-    //   setScore(score => score + 1);
-    //   setCardsClicked(cardsClicked => [...cardsClicked, id]);
-
-    //   if (score > highScore) {setHighScore(score)};
-    // } else {
-    //   setScore(0);
-    //   setCardsClicked([]);
-    // }
+      if (score > highScore) {setHighScore(score)};
+    } else {
+      setScore(0);
+      setCardsClicked([]);
+    }
   }
 
   return (

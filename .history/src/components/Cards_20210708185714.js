@@ -35,7 +35,7 @@ const Cards = (props) => {
             orange.removeEventListener('click', updateScoreWithFruit(orange));
         }
 
-    }, []);
+    }, [uid]);
 
 
 

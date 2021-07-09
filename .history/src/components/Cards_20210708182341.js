@@ -7,7 +7,9 @@ import '../style/Cards.css'
 
 const Cards = (props) => {
 
-
+    const [score, setScore] = useState(props.score);
+    const [cardsClicked, setCardsClicked] = useState(props.cardsClicked);
+    const [highScore, setHighScore] = useState(props.highScore);
 
     useEffect(()=>{
         const apple = document.getElementById(0);
@@ -15,11 +17,23 @@ const Cards = (props) => {
         const bananas = document.getElementById(2);
         const orange = document.getElementById(3);
 
+        const updateScore = (id) => {
+            //if cardsClicked doesn't contain id, add 1 to score, add id to cardsClicked
+            //    if score > highScore, set highScore = score
+            //else (if cardsClicked contains id), set score to 0, empty cardsClicked
+            if (!cardsClicked.includes(id)) {
+              setScore(score + 1);
+              setCardsClicked([...cardsClicked, id]);
+              console.log(id);
+              console.log(score);
+              if (score > highScore) {setHighScore(score)};
+            } else {
+              setScore(0);
+              setCardsClicked([]);
+            }
+          }
 
-
-        const updateScoreWithFruit = (e) => {
-            props.updateScore(e.id)
-        };
+        const updateScoreWithFruit = (e) => {updateScore(e.id)};
 
         apple.addEventListener('click', ()=>{updateScoreWithFruit(apple)});
         grapes.addEventListener('click', ()=>{updateScoreWithFruit(grapes)});

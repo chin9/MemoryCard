@@ -28,10 +28,6 @@ function App() {
 
   useEffect(()=> {
     console.log('score: ' + score);
-    if (score > highScore) {
-      setHighScore(score);
-    }
-    setUpdate(false);
     console.log(cardsClicked);
   }, [score, cardsClicked]);
 
@@ -40,15 +36,24 @@ function App() {
     console.log('card clicked: ' + currCard);
     console.log('update?: ' + update); 
 
+    async function addScore() {
+      setScore(score => score + 1);
+      setCardsClicked(cardsClicked => [...cardsClicked, currCard]);
+
+    }
 
     if (currCard === null || update === false) {
       // do nothing
     } else {
       const exists = cardsClicked.some(v => v === currCard);   
       if (!exists) {
-        setScore(score => score + 1);
-        setCardsClicked(cardsClicked => [...cardsClicked, currCard]);        
-        } else {
+        addScore()
+        .then(()=>{
+           if (score > highScore) {setHighScore(score)};         
+        }
+        )
+
+    } else {
       setScore(0);
       setCardsClicked([]);
     }     

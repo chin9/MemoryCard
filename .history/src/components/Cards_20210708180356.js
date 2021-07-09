@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import apple from '../images/apple.png';
 import grapes from '../images/grapes.png';
 import bananas from '../images/bananas.png';
@@ -7,24 +7,18 @@ import '../style/Cards.css'
 
 const Cards = (props) => {
 
-
-
     useEffect(()=>{
         const apple = document.getElementById(0);
         const grapes = document.getElementById(1);
         const bananas = document.getElementById(2);
         const orange = document.getElementById(3);
 
+        const updateScoreWithFruit = (e) => {props.updateScore(e.id)};
 
-
-        const updateScoreWithFruit = (e) => {
-            props.updateScore(e.id)
-        };
-
-        apple.addEventListener('click', ()=>{updateScoreWithFruit(apple)});
-        grapes.addEventListener('click', ()=>{updateScoreWithFruit(grapes)});
-        bananas.addEventListener('click', ()=>{updateScoreWithFruit(bananas)});
-        orange.addEventListener('click', ()=>{updateScoreWithFruit(orange)});
+        apple.addEventListener('click', updateScoreWithFruit(apple));
+        grapes.addEventListener('click', updateScoreWithFruit(grapes));
+        bananas.addEventListener('click', updateScoreWithFruit(bananas));
+        orange.addEventListener('click', updateScoreWithFruit(orange));
 
         console.log('mounted');
 

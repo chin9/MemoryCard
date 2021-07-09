@@ -17,9 +17,7 @@ const Cards = (props) => {
 
 
 
-        const updateScoreWithFruit = (e) => {
-            props.updateScore(e.id)
-        };
+        const updateScoreWithFruit = (e) => {props.updateScore(e.id)};
 
         apple.addEventListener('click', ()=>{updateScoreWithFruit(apple)});
         grapes.addEventListener('click', ()=>{updateScoreWithFruit(grapes)});

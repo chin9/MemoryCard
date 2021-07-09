@@ -18,6 +18,7 @@ const Cards = (props) => {
 
 
         const updateScoreWithFruit = (e) => {
+            console.log(e.id);
             props.updateScore(e.id)
         };
 
