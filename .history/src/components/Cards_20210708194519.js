@@ -2,11 +2,7 @@ import React, {useState, useEffect} from 'react';
 import apple from '../images/apple.png';
 import grapes from '../images/grapes.png';
 import bananas from '../images/bananas.png';
-import orange from '../images/orange-juice.png';
-import mango from '../images/mango.png';
-import blueberry from '../images/blueberry.png';
-import pineapple from '../images/pineapple.png';
-import avocado from '../images/avocado.png';
+import orange from '../images/orange-juice.png'
 import '../style/Cards.css'
 
 const Cards = (props) => {
@@ -18,10 +14,6 @@ const Cards = (props) => {
         const grapes = document.getElementById(1);
         const bananas = document.getElementById(2);
         const orange = document.getElementById(3);
-        const mango = document.getElementById(4);
-        const blueberry = document.getElementById(5);
-        const pineapple = document.getElementById(6);
-        const avocado = document.getElementById(7);
 
 
         function randomizeOrder() {
@@ -41,11 +33,6 @@ const Cards = (props) => {
         grapes.addEventListener('click', ()=>{updateScoreWithFruit(grapes)});
         bananas.addEventListener('click', ()=>{updateScoreWithFruit(bananas)});
         orange.addEventListener('click', ()=>{updateScoreWithFruit(orange)});
-        mango.addEventListener('click', ()=>{updateScoreWithFruit(mango)});
-        blueberry.addEventListener('click', ()=>{updateScoreWithFruit(blueberry)});
-        pineapple.addEventListener('click', ()=>{updateScoreWithFruit(pineapple)});
-        avocado.addEventListener('click', ()=>{updateScoreWithFruit(avocado)});
-
 
         console.log('mounted');
 
@@ -54,11 +41,6 @@ const Cards = (props) => {
             grapes.removeEventListener('click', updateScoreWithFruit(grapes));
             bananas.removeEventListener('click', updateScoreWithFruit(bananas));
             orange.removeEventListener('click', updateScoreWithFruit(orange));
-            mango.removeEventListener('click', ()=>{updateScoreWithFruit(mango)});
-            blueberry.removeEventListener('click', ()=>{updateScoreWithFruit(blueberry)});
-            pineapple.removeEventListener('click', ()=>{updateScoreWithFruit(pineapple)});
-            avocado.removeEventListener('click', ()=>{updateScoreWithFruit(avocado)});
-
         }
 
     }, []);
@@ -83,22 +65,6 @@ const Cards = (props) => {
         <div>
             <img src={orange} alt='orange' className='fruit' id={3}></img>
             <h4>Orange</h4>
-        </div>
-        <div>
-            <img src={mango} alt='mango' className='fruit' id={4}></img>
-            <h4>Mango</h4>
-        </div>
-        <div>
-            <img src={blueberry} alt='mango' className='fruit' id={5}></img>
-            <h4>Blueberries</h4>
-        </div>
-        <div>
-            <img src={pineapple} alt='mango' className='fruit' id={6}></img>
-            <h4>Pineapple</h4>
-        </div>
-        <div>
-            <img src={avocado} alt='mango' className='fruit' id={7}></img>
-            <h4>Avocado</h4>
         </div>
     </div>
     );

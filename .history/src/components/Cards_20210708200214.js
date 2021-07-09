@@ -6,7 +6,6 @@ import orange from '../images/orange-juice.png';
 import mango from '../images/mango.png';
 import blueberry from '../images/blueberry.png';
 import pineapple from '../images/pineapple.png';
-import avocado from '../images/avocado.png';
 import '../style/Cards.css'
 
 const Cards = (props) => {
@@ -21,7 +20,6 @@ const Cards = (props) => {
         const mango = document.getElementById(4);
         const blueberry = document.getElementById(5);
         const pineapple = document.getElementById(6);
-        const avocado = document.getElementById(7);
 
 
         function randomizeOrder() {
@@ -44,7 +42,6 @@ const Cards = (props) => {
         mango.addEventListener('click', ()=>{updateScoreWithFruit(mango)});
         blueberry.addEventListener('click', ()=>{updateScoreWithFruit(blueberry)});
         pineapple.addEventListener('click', ()=>{updateScoreWithFruit(pineapple)});
-        avocado.addEventListener('click', ()=>{updateScoreWithFruit(avocado)});
 
 
         console.log('mounted');
@@ -57,7 +54,6 @@ const Cards = (props) => {
             mango.removeEventListener('click', ()=>{updateScoreWithFruit(mango)});
             blueberry.removeEventListener('click', ()=>{updateScoreWithFruit(blueberry)});
             pineapple.removeEventListener('click', ()=>{updateScoreWithFruit(pineapple)});
-            avocado.removeEventListener('click', ()=>{updateScoreWithFruit(avocado)});
 
         }
 
@@ -95,10 +91,6 @@ const Cards = (props) => {
         <div>
             <img src={pineapple} alt='mango' className='fruit' id={6}></img>
             <h4>Pineapple</h4>
-        </div>
-        <div>
-            <img src={avocado} alt='mango' className='fruit' id={7}></img>
-            <h4>Avocado</h4>
         </div>
     </div>
     );
